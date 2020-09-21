@@ -24,4 +24,13 @@ public class Food {
   @JsonProperty("id")
   private int id;
 
+  @JsonProperty("rae")
+  private String retinolActivityEquivalent;
+
+  @JsonProperty("re")
+  private String retinolEquivalent;
+
+  @JsonProperty("vitaminC")
+  private String vitamin;
+
 }
