@@ -32,6 +32,9 @@ public class Food extends BaseEntity {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private UUID uuid;
 
+  @Column(name = "external_id")
+  private int externalId;
+
   @Type(type = "jsonb")
   @Column(columnDefinition = "metadata")
   private JsonNode attributes;
