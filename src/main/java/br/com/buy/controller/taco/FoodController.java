@@ -12,13 +12,13 @@ import br.com.buy.dto.FoodDataTransferObject;
 
 @RestController
 @RequestMapping(FoodController.PATH)
-public class FoodController {
+class FoodController {
 
   static final String PATH = "/food/";
 
   private Handler handler;
 
-  public FoodController(Handler handler) {
+  FoodController(Handler handler) {
     this.handler = handler;
   }
 

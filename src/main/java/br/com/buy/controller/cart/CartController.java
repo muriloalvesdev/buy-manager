@@ -25,7 +25,7 @@ class CartController {
 
   private Handler handler;
 
-  public CartController(Handler handler) {
+  CartController(Handler handler) {
     this.handler = handler;
   }
 

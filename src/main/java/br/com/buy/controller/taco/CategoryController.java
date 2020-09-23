@@ -11,7 +11,7 @@ import br.com.buy.http.request.service.TacoService;
 
 @RestController
 @RequestMapping(CategoryController.PATH)
-public class CategoryController {
+class CategoryController {
 
   static final String PATH = "/category/";
 
