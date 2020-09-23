@@ -30,20 +30,25 @@ public class TacoService {
   public List<CategoryDataTransferObject> findAllCategorys() {
     HttpHeaders httpHeaders = httpHeaders();
     HttpEntity<Object> httpEntity = httpEntity(httpHeaders);
-    return Arrays.asList(
-        restTemplate.exchange(categoryUrl, HttpMethod.GET, httpEntity, CategoryDataTransferObject[].class).getBody());
+    return Arrays.asList(this.restTemplate
+        .exchange(this.categoryUrl, HttpMethod.GET, httpEntity, CategoryDataTransferObject[].class)
+        .getBody());
   }
 
   public List<FoodDataTransferObject> findFood(String externalId) {
-    return Arrays.asList(restTemplate.getForObject(foodUrl + externalId, FoodDataTransferObject[].class));
+    return Arrays.asList(
+        this.restTemplate.getForObject(this.foodUrl + externalId, FoodDataTransferObject[].class));
   }
 
   public List<CategoryDataTransferObject> findCategory(String categoryId) {
-    return Arrays.asList(restTemplate.getForObject(categoryUrl + categoryId, CategoryDataTransferObject[].class));
+    return Arrays.asList(this.restTemplate.getForObject(this.categoryUrl + categoryId,
+        CategoryDataTransferObject[].class));
   }
 
   public List<FoodDataTransferObject> findByDescription(String description) {
-    return Arrays.asList(restTemplate.getForObject(foodUrl, FoodDataTransferObject[].class)).stream()
+    return Arrays
+        .asList(this.restTemplate.getForObject(this.foodUrl, FoodDataTransferObject[].class))
+        .stream()
         .filter(food -> food.getDescription().toLowerCase().contains(description.toLowerCase()))
         .collect(Collectors.toList());
   }
