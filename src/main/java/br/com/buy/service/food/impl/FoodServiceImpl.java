@@ -2,6 +2,7 @@ package br.com.buy.service.food.impl;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 import javax.transaction.Transactional;
@@ -14,6 +15,7 @@ import br.com.buy.dto.CartDataTransferObject;
 import br.com.buy.dto.FoodDataTransferObject;
 import br.com.buy.service.cart.CartService;
 import br.com.buy.service.convert.FoodConvert;
+import br.com.buy.service.exception.ProductAlreadyException;
 import br.com.buy.service.exception.ProductNotFoundException;
 import br.com.buy.service.food.FoodService;
 
@@ -86,12 +88,24 @@ public class FoodServiceImpl implements FoodService {
 
   private Cart addFoodInCart(FoodDataTransferObject dto, int count, String cartId) {
     Cart cart = findCart(cartId);
+    checkFoodAlreadyInCart(dto, cart);
     cart.setTotal(cart.getTotal() + count);
+
     Food food = createFood(dto, count, cart);
     this.cartService.update(cart);
     food.setCart(Arrays.asList(cart));
     this.repository.saveAndFlush(food);
+
     return cart;
+  }
+
+  private void checkFoodAlreadyInCart(FoodDataTransferObject dto, Cart cart) {
+    Optional<Food> optionalFood = this.repository.findByCart(cart).stream()
+        .filter(food -> food.getName().toLowerCase().equals(dto.getDescription().toLowerCase()))
+        .findAny();
+    if (optionalFood.isPresent()) {
+      throw new ProductAlreadyException();
+    }
   }
 
   private Cart findCart(String cartId) {
