@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ArgumentsSource;
@@ -46,7 +45,6 @@ public class FoodServiceImplTest {
     this.service = new FoodServiceImpl(repository, cartService);
   }
 
-  @Order(1)
   @ParameterizedTest
   @ArgumentsSource(FoodProviderDTO.class)
   void shouldSaveByCartId(FoodDataTransferObject dto) {
@@ -58,7 +56,6 @@ public class FoodServiceImplTest {
     verify(this.cartService, times(1)).findById(Mockito.any());
   }
 
-  @Order(2)
   @ParameterizedTest
   @ArgumentsSource(FoodProviderDTO.class)
   void shouldSaveWithCartIdEmpty(FoodDataTransferObject dto) {
@@ -71,7 +68,6 @@ public class FoodServiceImplTest {
     verify(this.cartService, times(1)).create(Mockito.anyInt());
   }
 
-  @Order(3)
   @ParameterizedTest
   @ArgumentsSource(FoodProviderDTO.class)
   void shouldDeleteByCartId(FoodDataTransferObject dto) {
@@ -90,7 +86,6 @@ public class FoodServiceImplTest {
   }
 
 
-  @Order(4)
   @ParameterizedTest
   @ArgumentsSource(FoodProviderDTO.class)
   void shouldDeleteByName(FoodDataTransferObject dto) {
@@ -107,7 +102,6 @@ public class FoodServiceImplTest {
     verify(this.cartService, times(1)).findById(Mockito.anyString());
   }
 
-  @Order(5)
   @Test
   void shouldDeleteButReturnProductNotFoundException() {
     List<Food> foods = new ArrayList<>();
@@ -125,7 +119,6 @@ public class FoodServiceImplTest {
         exception.getMessage());
   }
 
-  @Order(6)
   @ParameterizedTest
   @ArgumentsSource(FoodProviderDTO.class)
   void shouldUdateAddValueAndRemoveValueInAttributeCount(FoodDataTransferObject dto) {
@@ -143,7 +136,6 @@ public class FoodServiceImplTest {
     verify(this.cartService, times(2)).findById(Mockito.any());
   }
 
-  @Order(7)
   @ParameterizedTest
   @ArgumentsSource(FoodProviderDTO.class)
   void shouldFindCartById(FoodDataTransferObject dto) {
