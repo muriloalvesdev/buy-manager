@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import br.com.buy.controller.handler.Handler;
 import br.com.buy.dto.FoodDataTransferObject;
-import br.com.buy.http.service.TacoService;
 
 @RestController
 @RequestMapping(FoodController.PATH)
@@ -16,22 +16,22 @@ public class FoodController {
 
   static final String PATH = "/food/";
 
-  private TacoService tacoService;
+  private Handler handler;
 
-  FoodController(TacoService tacoService) {
-    this.tacoService = tacoService;
+  public FoodController(Handler handler) {
+    this.handler = handler;
   }
 
   @GetMapping("/{name}")
   public ResponseEntity<List<FoodDataTransferObject>> findByDescription(
       @PathVariable(value = "name") String name) {
-    return ResponseEntity.ok(this.tacoService.findByDescription(name));
+    return ResponseEntity.ok(this.handler.findByDescription(name));
   }
 
   @GetMapping
   public ResponseEntity<List<FoodDataTransferObject>> findById(
       @RequestParam(value = "id") String id) {
-    return ResponseEntity.ok(this.tacoService.findFood(id));
+    return ResponseEntity.ok(this.handler.findFoodById(id));
   }
 
 }
