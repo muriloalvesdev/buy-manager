@@ -22,7 +22,7 @@ public class Handler {
 
   public UUID add(Request request, String cartId) {
     Optional<FoodDataTransferObject> foodOptional =
-        this.tacoService.findByDescription(request.getName()).stream().findFirst();
+        this.tacoService.findByDescription(request.getName());
     if (foodOptional.isPresent()) {
       return this.foodService.save(foodOptional.get(), request.getCount(), cartId);
     }

@@ -2,7 +2,7 @@ package br.com.buy.http.service;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -45,12 +45,12 @@ public class TacoService {
         CategoryDataTransferObject[].class));
   }
 
-  public List<FoodDataTransferObject> findByDescription(String description) {
+  public Optional<FoodDataTransferObject> findByDescription(String description) {
     return Arrays
         .asList(this.restTemplate.getForObject(this.foodUrl, FoodDataTransferObject[].class))
         .stream()
         .filter(food -> food.getDescription().toLowerCase().contains(description.toLowerCase()))
-        .collect(Collectors.toList());
+        .findFirst();
   }
 
   private HttpEntity<Object> httpEntity(HttpHeaders headers) {
