@@ -18,8 +18,10 @@ import br.com.buy.dto.CartDataTransferObject;
 import br.com.buy.http.request.Request;
 
 @RestController
-@RequestMapping("cart")
+@RequestMapping(CartController.PATH)
 public class CartController {
+
+  static final String PATH = "/cart/";
 
   private Handler handler;
 
