@@ -14,7 +14,7 @@ import br.com.buy.dto.FoodDataTransferObject;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @Profile("test")
-public class FoodControllerIntegrationTest {
+class FoodControllerIntegrationTest {
   @Autowired
   private TestRestTemplate restTemplate;
 

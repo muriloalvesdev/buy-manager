@@ -26,7 +26,7 @@ import br.com.buy.service.cart.CartService;
 import br.com.buy.service.convert.FoodConvert;
 import br.com.buy.service.exception.ProductNotFoundException;
 
-public class FoodServiceImplTest {
+class FoodServiceImplTest {
 
   private FoodRepository repository;
 

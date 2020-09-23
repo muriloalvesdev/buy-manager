@@ -19,7 +19,7 @@ import br.com.buy.domain.repository.CartRepository;
 import br.com.buy.provider.CartProvider;
 import br.com.buy.service.exception.CartNotFoundException;
 
-public class CartServiceImplTest {
+class CartServiceImplTest {
 
   private CartRepository repository;
   private CartServiceImpl service;
