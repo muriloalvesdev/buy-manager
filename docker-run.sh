@@ -1,0 +1,1 @@
+mvn clean install -DskipTests -Pprod && docker build -t muriloalvesdev/buy_manager . && docker-compose up
