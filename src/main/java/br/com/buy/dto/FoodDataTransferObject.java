@@ -1,15 +1,11 @@
 package br.com.buy.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import br.com.buy.domain.entity.Food;
 import lombok.Data;
 
 @Data
 public class FoodDataTransferObject {
-
-  @JsonIgnore
-  private Object attributes;
 
   @JsonProperty("base_qty")
   private int baseQuantity;
@@ -31,7 +27,6 @@ public class FoodDataTransferObject {
 
   public static FoodDataTransferObject valueOf(Food food) {
     FoodDataTransferObject dto = new FoodDataTransferObject();
-    dto.setAttributes(food.getAttributes().toString());
     dto.setBaseQuantity(food.getBaseQuantity());
     dto.setBaseUnit(food.getBaseUnit());
     dto.setCategoryId(food.getCategoryId());

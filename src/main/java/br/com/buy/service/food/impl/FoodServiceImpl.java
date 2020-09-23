@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
-import com.fasterxml.jackson.databind.JsonNode;
 import br.com.buy.domain.entity.Cart;
 import br.com.buy.domain.entity.Food;
 import br.com.buy.domain.repository.FoodRepository;
@@ -16,7 +15,6 @@ import br.com.buy.dto.FoodDataTransferObject;
 import br.com.buy.service.cart.CartService;
 import br.com.buy.service.convert.FoodConvert;
 import br.com.buy.service.food.FoodService;
-import br.com.buy.service.utils.JSONUtils;
 
 @Service
 public class FoodServiceImpl implements FoodService {
@@ -96,8 +94,7 @@ public class FoodServiceImpl implements FoodService {
   }
 
   private Food createFood(FoodDataTransferObject dto, int count, Cart cart) {
-    JsonNode attributes = createAttributes(dto.getAttributes());
-    Food food = FoodConvert.convert(attributes, dto, cart);
+    Food food = FoodConvert.convert(dto, cart);
     food.setCount(count);
     return food;
   }
@@ -105,9 +102,4 @@ public class FoodServiceImpl implements FoodService {
   private Cart createCart(int count) {
     return this.cartService.create(count);
   }
-
-  private JsonNode createAttributes(Object attributes) {
-    return JSONUtils.toJsonNode(attributes);
-  }
-
 }
