@@ -11,8 +11,10 @@ import br.com.buy.dto.FoodDataTransferObject;
 import br.com.buy.http.service.TacoService;
 
 @RestController
-@RequestMapping("food")
+@RequestMapping(FoodController.PATH)
 public class FoodController {
+
+  static final String PATH = "/food/";
 
   private TacoService tacoService;
 
@@ -21,13 +23,15 @@ public class FoodController {
   }
 
   @GetMapping("/{name}")
-  public ResponseEntity<List<FoodDataTransferObject>> findByDescription(@PathVariable(value = "name") String name) {
-    return ResponseEntity.ok(tacoService.findByDescription(name));
+  public ResponseEntity<List<FoodDataTransferObject>> findByDescription(
+      @PathVariable(value = "name") String name) {
+    return ResponseEntity.ok(this.tacoService.findByDescription(name));
   }
 
   @GetMapping
-  public ResponseEntity<List<FoodDataTransferObject>> findById(@RequestParam(value = "id") String id) {
-    return ResponseEntity.ok(tacoService.findFood(id));
+  public ResponseEntity<List<FoodDataTransferObject>> findById(
+      @RequestParam(value = "id") String id) {
+    return ResponseEntity.ok(this.tacoService.findFood(id));
   }
 
 }
