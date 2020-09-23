@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 import br.com.buy.controller.handler.exception.model.ApiException;
 import br.com.buy.service.exception.CartNotFoundException;
+import br.com.buy.service.exception.FoodNotFoundException;
 import br.com.buy.service.exception.ProductNotFoundException;
 
 @ControllerAdvice
@@ -22,6 +23,12 @@ public class HandlerException extends ResponseEntityExceptionHandler {
 
   @ExceptionHandler(ProductNotFoundException.class)
   public ResponseEntity<ApiException> handleProductNotFoundException(ProductNotFoundException ex) {
+    return ResponseEntity.status(NOT_FOUND)
+        .body(createResponse(ex.getMessage(), NOT_FOUND.value()));
+  }
+
+  @ExceptionHandler(FoodNotFoundException.class)
+  public ResponseEntity<ApiException> handleFoodNotFoundException(FoodNotFoundException ex) {
     return ResponseEntity.status(NOT_FOUND)
         .body(createResponse(ex.getMessage(), NOT_FOUND.value()));
   }
