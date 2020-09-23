@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import br.com.buy.domain.entity.Cart;
 import br.com.buy.domain.repository.CartRepository;
 import br.com.buy.service.cart.CartService;
+import br.com.buy.service.exception.CartNotFoundException;
 
 @Service
 public class CartServiceImpl implements CartService {
@@ -17,7 +18,7 @@ public class CartServiceImpl implements CartService {
 
   public Cart findById(String cartId) {
     return this.repository.findById(UUID.fromString(cartId))
-        .orElseThrow(() -> new RuntimeException("cart not found with id[" + cartId + "]"));
+        .orElseThrow(() -> new CartNotFoundException(cartId));
   }
 
   public Cart create(int count) {

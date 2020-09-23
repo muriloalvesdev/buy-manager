@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import br.com.buy.dto.FoodDataTransferObject;
-import br.com.buy.service.taco.TacoService;
+import br.com.buy.http.service.TacoService;
 
 @RestController
 @RequestMapping("food")

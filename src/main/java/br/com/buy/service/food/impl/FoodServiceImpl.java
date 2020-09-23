@@ -14,6 +14,7 @@ import br.com.buy.dto.CartDataTransferObject;
 import br.com.buy.dto.FoodDataTransferObject;
 import br.com.buy.service.cart.CartService;
 import br.com.buy.service.convert.FoodConvert;
+import br.com.buy.service.exception.ProductNotFoundException;
 import br.com.buy.service.food.FoodService;
 
 @Service
@@ -65,7 +66,7 @@ public class FoodServiceImpl implements FoodService {
     Cart cart = findCart(cartId);
     Food foodToRemove = this.repository.findByCart(cart).stream()
         .filter(food -> food.getName().toLowerCase().equals(name.toLowerCase())).findAny()
-        .orElseThrow(() -> new RuntimeException(
+        .orElseThrow(() -> new ProductNotFoundException(
             "Product not found. Product has possibly been removed previously."));
     this.repository.delete(foodToRemove);
     cart.setTotal(cart.getTotal() - foodToRemove.getCount());
