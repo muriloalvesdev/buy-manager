@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>br.com.buy</groupId>
 	<artifactId>buy-manager</artifactId>
-	<version>0.0.1</version>
+	<version>1.0</version>
 	<name>buy-manager</name>
 	<description>Project to manage shopping</description>
 
@@ -20,6 +20,10 @@
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+		</dependency>
 		<dependency>
 			<artifactId>springfox-swagger2</artifactId>
 			<groupId>io.springfox</groupId>
