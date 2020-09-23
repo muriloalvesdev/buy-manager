@@ -38,6 +38,15 @@ public class FoodServiceImpl implements FoodService {
     return cart.getUuid();
   }
 
+  @Transactional
+  public void delete(String uuidCart) {
+    Cart cart = findCart(uuidCart);
+    cart.setTotal(0);
+    List<Food> foods = this.repository.findByCart(cart);
+    this.repository.deleteAll(foods);
+    this.cartService.update(cart);
+  }
+
   public CartDataTransferObject find(String cartId) {
     Cart cart = findCart(cartId);
     List<FoodDataTransferObject> foods = this.repository.findByCart(cart).stream()
@@ -64,10 +73,12 @@ public class FoodServiceImpl implements FoodService {
 
   public void delete(String name, String cartId) {
     Cart cart = findCart(cartId);
-    Food foodToRemove = this.repository.findByCart(cart).stream()
-        .filter(food -> food.getName().toLowerCase().equals(name.toLowerCase())).findAny()
-        .orElseThrow(() -> new ProductNotFoundException(
-            "Product not found. Product has possibly been removed previously."));
+    List<Food> foods = this.repository.findByCart(cart);
+
+    Food foodToRemove =
+        foods.stream().filter(food -> food.getName().toLowerCase().equals(name.toLowerCase()))
+            .findAny().orElseThrow(() -> new ProductNotFoundException(
+                "Product not found. Product has possibly been removed previously."));
     this.repository.delete(foodToRemove);
     cart.setTotal(cart.getTotal() - foodToRemove.getCount());
     this.cartService.update(cart);

@@ -19,7 +19,7 @@ import br.com.buy.http.request.Request;
 
 @RestController
 @RequestMapping(CartController.PATH)
-public class CartController {
+class CartController {
 
   static final String PATH = "/cart/";
 
@@ -51,9 +51,15 @@ public class CartController {
     return ResponseEntity.noContent().build();
   }
 
+  @DeleteMapping("all")
+  public ResponseEntity<Object> deleteAll(@RequestParam(name = "cartId") String uuidCart) {
+    this.handler.delete(uuidCart);
+    return ResponseEntity.noContent().build();
+  }
+
   @GetMapping("/{uuidCart}")
   public ResponseEntity<CartDataTransferObject> find(
       @PathVariable(name = "uuidCart") String uuidCart) {
-    return ResponseEntity.ok(this.handler.find(uuidCart));
+    return ResponseEntity.ok(this.handler.findCartById(uuidCart));
   }
 }

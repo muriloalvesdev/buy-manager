@@ -12,4 +12,6 @@ public interface FoodService {
   void update(String name, int count, String cartId, Boolean add);
 
   void delete(String name, String cartId);
+
+  void delete(String uuidCart);
 }
