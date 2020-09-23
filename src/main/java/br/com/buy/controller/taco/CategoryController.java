@@ -10,8 +10,10 @@ import br.com.buy.dto.CategoryDataTransferObject;
 import br.com.buy.http.service.TacoService;
 
 @RestController
-@RequestMapping("category/")
+@RequestMapping(CategoryController.PATH)
 public class CategoryController {
+
+  static final String PATH = "/category/";
 
   private TacoService tacoService;
 
@@ -20,13 +22,14 @@ public class CategoryController {
   }
 
   @GetMapping("{id}")
-  public ResponseEntity<List<CategoryDataTransferObject>> findById(@PathVariable(name = "id") String id) {
-    return ResponseEntity.ok(tacoService.findCategory(id));
+  public ResponseEntity<List<CategoryDataTransferObject>> findById(
+      @PathVariable(name = "id") String id) {
+    return ResponseEntity.ok(this.tacoService.findCategory(id));
   }
 
   @GetMapping
   public ResponseEntity<List<CategoryDataTransferObject>> findAllCategorys() {
-    return ResponseEntity.ok(tacoService.findAllCategorys());
+    return ResponseEntity.ok(this.tacoService.findAllCategorys());
   }
 
 }
