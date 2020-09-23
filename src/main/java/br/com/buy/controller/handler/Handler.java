@@ -7,8 +7,8 @@ import java.util.UUID;
 import org.springframework.stereotype.Component;
 import br.com.buy.dto.CartDataTransferObject;
 import br.com.buy.dto.FoodDataTransferObject;
-import br.com.buy.http.request.Request;
-import br.com.buy.http.service.TacoService;
+import br.com.buy.http.request.resource.Request;
+import br.com.buy.http.request.service.TacoService;
 import br.com.buy.service.exception.FoodNotFoundException;
 import br.com.buy.service.food.FoodService;
 

@@ -1,4 +1,4 @@
-package br.com.buy.http.service;
+package br.com.buy.http.request.service;
 
 import java.util.Arrays;
 import java.util.List;

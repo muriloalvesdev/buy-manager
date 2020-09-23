@@ -34,8 +34,8 @@ import br.com.buy.domain.entity.Food;
 import br.com.buy.domain.repository.CartRepository;
 import br.com.buy.domain.repository.FoodRepository;
 import br.com.buy.dto.FoodDataTransferObject;
-import br.com.buy.http.request.Request;
-import br.com.buy.http.service.TacoService;
+import br.com.buy.http.request.resource.Request;
+import br.com.buy.http.request.service.TacoService;
 import br.com.buy.service.cart.CartService;
 
 @SpringBootTest

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import br.com.buy.controller.handler.Handler;
 import br.com.buy.dto.CartDataTransferObject;
-import br.com.buy.http.request.Request;
+import br.com.buy.http.request.resource.Request;
 
 @RestController
 @RequestMapping(CartController.PATH)

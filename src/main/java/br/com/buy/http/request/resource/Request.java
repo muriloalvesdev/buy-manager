@@ -1,4 +1,4 @@
-package br.com.buy.http.request;
+package br.com.buy.http.request.resource;
 
 import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonProperty;

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import br.com.buy.dto.CategoryDataTransferObject;
-import br.com.buy.http.service.TacoService;
+import br.com.buy.http.request.service.TacoService;
 
 @RestController
 @RequestMapping(CategoryController.PATH)
