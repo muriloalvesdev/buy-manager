@@ -52,7 +52,7 @@ $./docker-run.sh
 - Execute o script `$./docker-run.sh` para construir a aplicação. 
 Este script compila o projeto com o profile de `PROD`, cria uma imagem Docker da aplicação e por fim utiliza o 
 Docker Compose para baixar a imagem do PostgreSQL (banco de dados) e sobe a aplicação.
-
+- Após executar o script você ja deve ter a aplicação sendo executada.
 ```
 OBS: O projeto é executado na porta 8080 e o banco de dados é executado na porta 5432, verifique se essas 
 portas estão disponíveis caso ocorra algum erro. Tenha certeza de que você está com o Docker e o 
@@ -65,5 +65,4 @@ Caso você queira apenas baixar a imagem e executar a aplicação, basta seguir 
 
 - Baixe a imagem Docker, utilizando o comando: `$docker pull muriloalvesdev/schedule`
 - Execute o comando `$docker run <id_imagem>` para executar o container.
-
-`Agora você terá a aplicação rodando perfeitamente.`
+- E agora você ja deve ter a aplicação sendo executada.
