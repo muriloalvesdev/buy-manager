@@ -3,7 +3,7 @@
 ## Buy Manager API
 
 ## License
-[Apache License 2.0](https://github.com/muriloalvesdev/luizalabs-desafio/blob/master/LICENSE)
+[Apache License 2.0](https://github.com/muriloalvesdev/buy-manager/blob/master/LICENSE)
 
 ## Tecnologias 
 
