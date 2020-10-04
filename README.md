@@ -63,6 +63,6 @@ Maven instalados para que você não tenha problemas ao compilar, testar e execu
 Caso você queira apenas baixar a imagem e executar a aplicação, basta seguir os passos abaixo:
 `OBS: Você precisa ter o PostgreSQL pré instalado com um database chamado "buy_manager" .`
 
-- Baixe a imagem Docker, utilizando o comando: `$docker pull muriloalvesdev/schedule`
+- Baixe a imagem Docker, utilizando o comando: `$docker pull muriloalvesdev/buy_manager`
 - Execute o comando `$docker run <id_imagem>` para executar o container.
 - E agora você ja deve ter a aplicação sendo executada.
