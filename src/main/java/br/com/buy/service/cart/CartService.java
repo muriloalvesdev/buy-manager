@@ -1,9 +1,9 @@
 package br.com.buy.service.cart;
 
-import br.com.buy.domain.entity.Cart;
+public interface CartService<T> {
+  T create(int count);
 
-public interface CartService {
-  Cart create(int count);
-  Cart findById(String cartId);
-  void update(Cart cart);
+  T findById(String cartId);
+
+  void update(T cart);
 }

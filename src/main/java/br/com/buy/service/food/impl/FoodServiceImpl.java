@@ -23,9 +23,9 @@ import br.com.buy.service.food.FoodService;
 public class FoodServiceImpl implements FoodService {
 
   private FoodRepository repository;
-  private CartService cartService;
+  private CartService<Cart> cartService;
 
-  FoodServiceImpl(FoodRepository repository, CartService cartService) {
+  FoodServiceImpl(FoodRepository repository, CartService<Cart> cartService) {
     this.repository = repository;
     this.cartService = cartService;
   }

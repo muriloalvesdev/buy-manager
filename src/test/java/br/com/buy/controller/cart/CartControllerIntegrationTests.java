@@ -62,7 +62,7 @@ class CartControllerIntegrationTests {
   private TacoService tacoService;
 
   @MockBean
-  private CartService cartService;
+  private CartService<Cart> cartService;
 
   private URI baseUri;
 

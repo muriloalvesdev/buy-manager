@@ -8,7 +8,7 @@ import br.com.buy.service.cart.CartService;
 import br.com.buy.service.exception.CartNotFoundException;
 
 @Service
-public class CartServiceImpl implements CartService {
+public class CartServiceImpl implements CartService<Cart> {
 
   private CartRepository repository;
 

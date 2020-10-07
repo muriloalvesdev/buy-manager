@@ -30,7 +30,7 @@ class FoodServiceImplTest {
 
   private FoodRepository repository;
 
-  private CartService cartService;
+  private CartService<Cart> cartService;
 
   private FoodServiceImpl service;
 
