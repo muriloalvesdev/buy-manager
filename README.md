@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.com/muriloalvesdev/buy-manager.svg?token=ioemJXEZtsUqgszw2Nq4&branch=master)](https://travis-ci.com/muriloalvesdev/buy-manager)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=muriloalvesdev_buy-manager&metric=alert_status)](https://sonarcloud.io/dashboard?id=muriloalvesdev_buy-manager)
 
 ## Buy Manager API
 
