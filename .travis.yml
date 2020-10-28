@@ -9,11 +9,6 @@ services:
   - postgresql
   
 addons:
-  sonarcloud:
-    organization: "muriloalvesdev"
-    token:
-      secure: c98c10e52375bd7d839cc983a1169cfb1281baa1
-      
   postgresql: "9.5"
 
 install: true
