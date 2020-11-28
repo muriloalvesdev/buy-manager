@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.com/muriloalvesdev/buy-manager.svg?token=ioemJXEZtsUqgszw2Nq4&branch=master)](https://travis-ci.com/muriloalvesdev/buy-manager)
+[![codecov](https://codecov.io/gh/muriloalvesdev/buy-manager/branch/master/graph/badge.svg)](https://codecov.io/gh/muriloalvesdev/buy-manager/)
 
 
 ## Buy Manager API
