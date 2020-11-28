@@ -13,6 +13,10 @@ addons:
 
 install: true
 
+env:
+ global:
+   - CODECOV_TOKEN="f6b39483-2825-46e8-ac4f-e906544d3611"
+
 before_install:
   - psql -c 'create database "buy_manager";' -U postgres
 
