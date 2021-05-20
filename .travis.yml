@@ -15,7 +15,7 @@ install: true
 
 env:
  global:
-   - CODECOV_TOKEN="f6b39483-2825-46e8-ac4f-e906544d3611"
+   - CODECOV_TOKEN="6e779bc1-fde9-41a9-badd-5972e846ffaa"
 
 before_install:
   - psql -c 'create database "buy_manager";' -U postgres
